@@ -1,25 +1,26 @@
 /* Definição de Cores e Fontes - Variáveis CSS */
 :root {
-    --primary-color: #2c3e50; /* Azul Marinho Profundo */
-    --secondary-color: #3498db; /* Azul Céu Vibrante */
+    --primary-color: #4b6cb7; /* Azul Pálido Suave */
+    --accent-color: #55c5e8; /* Turquesa Claro */
     --text-color-dark: #333;
-    --text-color-light: #f4f4f4;
-    --bg-light: #ecf0f1; /* Cinza Claro Suave */
+    --text-color-light: #f9f9f9;
+    --bg-main: #fcfcfc;
+    --bg-section: #eef3f6;
     --card-bg: #fff;
-    --font-heading: 'Poppins', sans-serif;
-    --font-body: 'Roboto', sans-serif;
+    --font-heading: 'Lora', serif;
+    --font-body: 'Lato', sans-serif;
 }
 
-/* Importando a nova fonte */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;700&display=swap');
+/* Importando novas fontes */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
 
 /* Estilos Globais */
 body {
     font-family: var(--font-body);
     margin: 0;
-    line-height: 1.7;
+    line-height: 1.8;
     color: var(--text-color-dark);
-    background-color: var(--bg-light);
+    background-color: var(--bg-main);
     -webkit-font-smoothing: antialiased;
 }
 
@@ -31,7 +32,7 @@ h1, h2, h3 {
 
 .container {
     width: 90%;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -39,53 +40,54 @@ h1, h2, h3 {
 .section {
     padding: 80px 0;
     text-align: center;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.4s ease;
 }
 
 .bg-light {
-    background-color: var(--bg-light);
+    background-color: var(--bg-section);
 }
 
-/* Animação e Efeito Hover */
+/* Títulos com um toque de delicadeza */
 .section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
+    font-size: 2.8rem;
+    font-weight: 400;
+    margin-bottom: 20px;
     position: relative;
     display: inline-block;
+    color: var(--primary-color);
 }
 
 .section h2::after {
     content: '';
     display: block;
-    width: 60px;
-    height: 4px;
-    background-color: var(--secondary-color);
+    width: 80px;
+    height: 1px;
+    background-color: var(--accent-color);
     margin: 10px auto 0;
-    border-radius: 2px;
 }
 
 /* Cabeçalho */
 header {
-    background: var(--primary-color);
-    color: var(--text-color-light);
+    background: var(--card-bg);
     padding: 1.5rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid #eee;
 }
 
 header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 header h1 {
     margin: 0;
     font-size: 2rem;
-    color: #fff;
+    color: var(--primary-color);
+    font-weight: 700;
 }
 
 header nav ul {
@@ -96,18 +98,18 @@ header nav ul {
 }
 
 header nav a {
-    color: #fff;
+    color: var(--text-color-dark);
     text-decoration: none;
-    font-weight: 600;
-    padding: 12px 20px;
+    font-weight: 400;
+    padding: 10px 18px;
     display: block;
-    border-radius: 50px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 5px;
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 header nav a:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-2px);
+    color: var(--text-color-light);
+    background-color: var(--primary-color);
 }
 
 /* Seções de Conteúdo */
@@ -115,14 +117,28 @@ header nav a:hover {
     background: var(--card-bg);
     padding: 30px;
     margin: 20px auto;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
-    max-width: 400px;
+    border-left: 5px solid var(--accent-color);
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 450px;
+}
+
+.culto-card h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-top: 0;
+}
+
+.culto-card p {
+    margin: 5px 0;
+    color: #555;
+    font-weight: 300;
 }
 
 .culto-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .mapa-container {
@@ -132,26 +148,23 @@ header nav a:hover {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
-.mapa-container iframe {
-    border: 0;
-}
-
 .pix-key, .bank-info {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--secondary-color);
-    background-color: var(--card-bg);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    background-color: var(--bg-section);
     padding: 15px 25px;
     border-radius: 8px;
     display: inline-block;
     margin: 10px 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
 }
 
 .social-media a {
-    color: var(--secondary-color);
+    color: var(--accent-color);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
+    margin: 0 10px;
     transition: color 0.3s ease;
 }
 
@@ -167,6 +180,85 @@ footer {
     padding: 30px 0;
     font-size: 0.9rem;
 }
+/* Estilos para o botão do menu (Hambúrguer) */
+.menu-toggle {
+    display: none; /* Esconde o botão por padrão em telas grandes */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    z-index: 1001; /* Garante que o botão fique acima de tudo */
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff; /* Cor das barras do menu */
+    margin: 5px 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Estado do botão quando o menu está ativo (aberto) */
+.menu-toggle[aria-expanded="true"] .bar:nth-child(2) {
+    opacity: 0; /* Esconde a barra do meio */
+}
+
+.menu-toggle[aria-expanded="true"] .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px); /* Rotaciona a barra de cima para formar um 'X' */
+}
+
+.menu-toggle[aria-expanded="true"] .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px); /* Rotaciona a barra de baixo */
+}
+
+/* Lógica de exibição/ocultação do menu para telas pequenas */
+@media (max-width: 768px) {
+    /* Exibe o botão do menu e esconde a nav por padrão */
+    .menu-toggle {
+        display: block;
+    }
+
+    .main-nav {
+        display: none; /* Esconde a navegação por padrão */
+        flex-direction: column;
+        width: 100%;
+        background-color: #34495e; /* Fundo do menu mobile */
+        position: absolute;
+        top: 100%; /* Posição abaixo do header */
+        left: 0;
+        text-align: center;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Exibe o menu quando a classe 'active' é adicionada via JS */
+    .main-nav.active {
+        display: flex;
+    }
+
+    /* Estilo dos itens do menu mobile */
+    .main-nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .main-nav li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .main-nav a {
+        padding: 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    header .container {
+        flex-wrap: nowrap;
+    }
+}
 
 /* Responsividade */
 @media (max-width: 768px) {
@@ -174,10 +266,10 @@ footer {
         padding: 50px 0;
     }
 
-    header .container {
+    /* header .container {
         flex-direction: column;
         text-align: center;
-    }
+    } */
 
     header nav ul {
         flex-direction: column;
@@ -189,5 +281,10 @@ footer {
         padding: 10px;
         text-align: center;
         border-radius: 0;
+    }
+
+    .culto-card {
+        margin-left: 0;
+        margin-right: 0;
     }
 }
